@@ -1,4 +1,4 @@
-package ru.ctddev.ifmo.year2013.foodsharing;
+package ru.ctddev.ifmo.year2013.foodsharing.ui;
 
 import android.location.Address;
 import android.location.Geocoder;
@@ -12,6 +12,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.GoogleMap;
 
 import java.util.List;
+
+import ru.ctddev.ifmo.year2013.foodsharing.R;
 
 public class FoodmapActivity extends FragmentActivity {
 

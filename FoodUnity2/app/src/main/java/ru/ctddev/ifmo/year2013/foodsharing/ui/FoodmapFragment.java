@@ -1,4 +1,4 @@
-package ru.ctddev.ifmo.year2013.foodsharing;
+package ru.ctddev.ifmo.year2013.foodsharing.ui;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -29,6 +29,8 @@ import com.google.firebase.database.Query;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import ru.ctddev.ifmo.year2013.foodsharing.model.Donation;
 
 
 public class FoodmapFragment extends SupportMapFragment implements GoogleApiClient.ConnectionCallbacks,

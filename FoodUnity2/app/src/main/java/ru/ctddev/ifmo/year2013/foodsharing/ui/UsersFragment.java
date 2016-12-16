@@ -1,4 +1,4 @@
-package ru.ctddev.ifmo.year2013.foodsharing;
+package ru.ctddev.ifmo.year2013.foodsharing.ui;
 
 import android.app.Activity;
 import android.app.DialogFragment;
@@ -18,6 +18,11 @@ import android.widget.AdapterView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import ru.ctddev.ifmo.year2013.foodsharing.model.Data;
+import ru.ctddev.ifmo.year2013.foodsharing.R;
+import ru.ctddev.ifmo.year2013.foodsharing.model.Reservation;
+import ru.ctddev.ifmo.year2013.foodsharing.model.User;
 
 /**
  * Created by Daria Yakovleva on 8/4/16.

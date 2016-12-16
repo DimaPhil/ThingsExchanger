@@ -1,4 +1,4 @@
-package ru.ctddev.ifmo.year2013.foodsharing;
+package ru.ctddev.ifmo.year2013.foodsharing.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import com.firebase.ui.auth.AuthUI;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
+
+import ru.ctddev.ifmo.year2013.foodsharing.R;
 
 public class MainActivity extends BaseActivity {
 

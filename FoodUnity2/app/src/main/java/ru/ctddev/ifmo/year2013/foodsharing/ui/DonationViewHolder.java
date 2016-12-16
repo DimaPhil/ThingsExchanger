@@ -1,4 +1,4 @@
-package ru.ctddev.ifmo.year2013.foodsharing;
+package ru.ctddev.ifmo.year2013.foodsharing.ui;
 
 import android.app.Activity;
 import android.app.FragmentManager;
@@ -11,6 +11,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dinuscxj.progressbar.CircleProgressBar;
+
+import ru.ctddev.ifmo.year2013.foodsharing.model.Data;
+import ru.ctddev.ifmo.year2013.foodsharing.model.Donation;
+import ru.ctddev.ifmo.year2013.foodsharing.R;
 
 /**
  * Created by Daria Yakovleva on 8/4/16.

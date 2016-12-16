@@ -1,8 +1,11 @@
-package ru.ctddev.ifmo.year2013.foodsharing;
+package ru.ctddev.ifmo.year2013.foodsharing.ui;
 
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import ru.ctddev.ifmo.year2013.foodsharing.model.Donation;
+import ru.ctddev.ifmo.year2013.foodsharing.R;
 
 /**
  * Created by demouser on 8/4/16.

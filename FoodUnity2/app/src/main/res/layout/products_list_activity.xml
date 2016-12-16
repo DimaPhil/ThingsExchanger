@@ -17,7 +17,7 @@
     </fragment>
 -->
     <fragment
-        android:name="ru.ctddev.ifmo.year2013.foodsharing.ProductListFragment"
+        android:name="ru.ctddev.ifmo.year2013.foodsharing.ui.ProductListFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/donation_fragment"
@@ -25,7 +25,7 @@
     </fragment>
 
     <fragment
-        android:name="ru.ctddev.ifmo.year2013.foodsharing.ProductListFragment"
+        android:name="ru.ctddev.ifmo.year2013.foodsharing.ui.ProductListFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/reservation_fragment"

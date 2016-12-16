@@ -1,4 +1,4 @@
-package ru.ctddev.ifmo.year2013.foodsharing;
+package ru.ctddev.ifmo.year2013.foodsharing.ui;
 
 import android.content.Intent;
 import android.graphics.Outline;
@@ -21,6 +21,8 @@ import android.support.v7.widget.Toolbar;
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
+
+import ru.ctddev.ifmo.year2013.foodsharing.R;
 
 public class BaseActivity extends AppCompatActivity {
 

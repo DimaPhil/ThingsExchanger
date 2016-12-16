@@ -1,17 +1,20 @@
-package ru.ctddev.ifmo.year2013.foodsharing;
+package ru.ctddev.ifmo.year2013.foodsharing.model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import ru.ctddev.ifmo.year2013.foodsharing.model.Item;
+import ru.ctddev.ifmo.year2013.foodsharing.model.Reservation;
+
 /**
  * Created by Daria Yakovleva on 8/4/16.
  */
 public class User implements Item {
-    String iden;
-    String name;
-    String address;
-    String phone;
+    public String iden;
+    public String name;
+    public String address;
+    public String phone;
     private List<String> donations;
     private List<Reservation> reservations;
     //TODO image

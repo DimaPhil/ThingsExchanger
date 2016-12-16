@@ -1,4 +1,4 @@
-package ru.ctddev.ifmo.year2013.foodsharing;
+package ru.ctddev.ifmo.year2013.foodsharing.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import ru.ctddev.ifmo.year2013.foodsharing.model.Data;
+import ru.ctddev.ifmo.year2013.foodsharing.database.DatabaseConnection;
+import ru.ctddev.ifmo.year2013.foodsharing.model.Donation;
+import ru.ctddev.ifmo.year2013.foodsharing.R;
+import ru.ctddev.ifmo.year2013.foodsharing.model.User;
 
 public class HomeActivity extends BaseActivity {
 

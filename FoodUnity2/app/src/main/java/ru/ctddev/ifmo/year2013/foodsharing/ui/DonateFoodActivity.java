@@ -1,4 +1,4 @@
-package ru.ctddev.ifmo.year2013.foodsharing;
+package ru.ctddev.ifmo.year2013.foodsharing.ui;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -24,6 +24,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
+
+import ru.ctddev.ifmo.year2013.foodsharing.model.Donation;
+import ru.ctddev.ifmo.year2013.foodsharing.R;
 
 public class DonateFoodActivity extends BaseActivity {
 

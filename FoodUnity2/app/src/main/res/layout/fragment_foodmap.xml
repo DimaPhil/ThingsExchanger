@@ -3,13 +3,13 @@
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-tools:context="ru.ctddev.ifmo.year2013.foodsharing.MainActivity"
+tools:context="ru.ctddev.ifmo.year2013.foodsharing.ui.MainActivity"
     android:background="@color/colorBackground">
 
 <fragment
     android:id="@+id/map"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    class="ru.ctddev.ifmo.year2013.foodsharing.FoodmapFragment" />
+    class="ru.ctddev.ifmo.year2013.foodsharing.ui.FoodmapFragment" />
 
 </RelativeLayout>

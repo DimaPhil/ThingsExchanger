@@ -1,4 +1,4 @@
-package ru.ctddev.ifmo.year2013.foodsharing;
+package ru.ctddev.ifmo.year2013.foodsharing.model;
 
 /**
  * Created by demouser on 8/4/16.
@@ -14,9 +14,9 @@ public class Donation implements Item {
     private String address;
     private double latitude;
     private double longitude;
-    String iden;
-    String expiry_date;
-    int reserved = 0;
+    public String iden;
+    public String expiry_date;
+    public int reserved = 0;
     private int quantity = 0;
     private String display_name;
 
