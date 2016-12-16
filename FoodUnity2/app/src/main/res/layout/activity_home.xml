@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.camp.android.luciana.foodunity.HomeActivity"
+    tools:context="com.ctddev.ifmo.year2013.foodsharing.ru.ctddev.ifmo.year2013.foodsharing.HomeActivity"
     android:orientation="vertical"
     android:background="@color/colorBackground">
 

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.camp.android.luciana.foodunity.LoginActivity"
+    tools:context="com.ctddev.ifmo.year2013.foodsharing.ru.ctddev.ifmo.year2013.foodsharing.LoginActivity"
     android:id="@+id/profile_drawer"
     android:elevation="8dp">
 

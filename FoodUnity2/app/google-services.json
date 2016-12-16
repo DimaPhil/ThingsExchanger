@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:932234006097:android:163e34981756569c",
         "android_client_info": {
-          "package_name": "com.camp.android.luciana.foodunity"
+          "package_name": "ru.ctddev.ifmo.year2013.foodsharing"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "932234006097-33h3d80tg8400gleo8pkduehqog402g4.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.camp.android.luciana.foodunity",
+            "package_name": "ru.ctddev.ifmo.year2013.foodsharing",
             "certificate_hash": "CC0D37070035B9281D8A8995120C892DE302FA27"
           }
         },
