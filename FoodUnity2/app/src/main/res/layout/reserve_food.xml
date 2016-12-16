@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="160dp"
+                android:id="@+id/user_reserved_image"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginRight="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Pizza with chicken"
+                android:id="@+id/food_name"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/user_reserved_image"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="2 Mile Street"
+                android:id="@+id/food_address"
+                android:layout_centerVertical="true"
+                android:layout_below="@+id/food_name"
+                android:layout_toRightOf="@+id/user_reserved_image"
+                />
+            <Spinner
+                android:text="quantity"
+                android:id="@+id/quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/food_address"
+                android:layout_toRightOf="@+id/user_reserved_image"
+                />
+            <Button android:text="Reserve"
+                android:id="@+id/reserve"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/quantity"
+                android:layout_below="@id/food_address"/>
+
+
+        </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "932234006097",
+    "firebase_url": "https://foodunity-a9577.firebaseio.com",
+    "project_id": "foodunity-a9577",
+    "storage_bucket": "foodunity-a9577.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:932234006097:android:163e34981756569c",
+        "android_client_info": {
+          "package_name": "com.camp.android.luciana.foodunity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "932234006097-33h3d80tg8400gleo8pkduehqog402g4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.camp.android.luciana.foodunity",
+            "certificate_hash": "CC0D37070035B9281D8A8995120C892DE302FA27"
+          }
+        },
+        {
+          "client_id": "932234006097-uaor6il3g8pape00iorbrule7lvf2ad7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCk7lj69Pztfyf_pE_80kn6BAM4Mp-dMO0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "932234006097-uaor6il3g8pape00iorbrule7lvf2ad7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
