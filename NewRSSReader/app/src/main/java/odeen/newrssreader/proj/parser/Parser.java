@@ -42,12 +42,12 @@ public class Parser {
         }
         String response = sb.toString();
         //response = response.replaceAll("&", "&amp;");
-        System.err.println(response);
+        //System.err.println(response);
         InputSource inputSource = new InputSource();
         inputSource.setEncoding("UTF-8");
         inputSource.setCharacterStream(new StringReader(response));
         parser.parse(inputSource, feedHandler);
-        System.err.println(output);
+        //System.err.println(output);
         return output;
     }
 

@@ -87,7 +87,7 @@ public class ItemFetcherService extends IntentService {
         sendBroadcast(new Intent(ACTION_ITEMS_UPDATED));
     }
 
-    private InputStream downloadUrl(String urlString) throws IOException {
+    public InputStream downloadUrl(String urlString) throws IOException {
         URL url = new URL(urlString);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setReadTimeout(10000 /* milliseconds */);
