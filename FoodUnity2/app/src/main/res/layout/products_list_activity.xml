@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context="com.ctddev.ifmo.year2013.foodsharing.ru.ctddev.ifmo.year2013.foodsharing.ProductListsActivity"
+    tools:context="ru.ctddev.ifmo.year2013.foodsharing.ui.productlist.ProductListsActivity"
     android:background="@color/colorBackground"
     >
 <!--
