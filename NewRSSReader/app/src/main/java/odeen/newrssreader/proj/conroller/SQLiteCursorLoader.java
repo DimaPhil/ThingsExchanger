@@ -5,7 +5,6 @@ import android.database.Cursor;
 import android.support.v4.content.AsyncTaskLoader;
 
 public abstract class SQLiteCursorLoader extends AsyncTaskLoader<Cursor> {
-
     private Cursor mCursor;
 
     public SQLiteCursorLoader(Context context) {

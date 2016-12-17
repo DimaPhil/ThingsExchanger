@@ -10,6 +10,7 @@ import android.database.CursorWrapper;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -74,10 +75,10 @@ public class ChannelContentProvider extends ContentProvider {
     }
 
     @Override
-    public Cursor query(Uri uri, String[] projection, String selection,
+    public Cursor query(@NonNull Uri uri, String[] projection, String selection,
                         String[] selectionArgs, String sortOrder) {
-        String table = null;
-        Uri contentUri = null;
+        String table;
+        Uri contentUri;
         switch (mUriMatcher.match(uri)) {
             case URI_CHANNELS:
                 if (TextUtils.isEmpty(sortOrder)) {
@@ -116,19 +117,22 @@ public class ChannelContentProvider extends ContentProvider {
         }
         Cursor cursor = mHelper.getWritableDatabase().query(table, projection, selection,
                 selectionArgs, null, null, sortOrder);
-        cursor.setNotificationUri(getContext().getContentResolver(), contentUri);
+        Context context = getContext();
+        if (context != null) {
+            cursor.setNotificationUri(context.getContentResolver(), contentUri);
+        }
         Log.d(TAG, contentUri.toString());
         return cursor;
     }
 
     @Override
-    public String getType(Uri uri) {
+    public String getType(@NonNull Uri uri) {
         return null;
     }
 
     @Override
-    public Uri insert(Uri uri, ContentValues contentValues) {
-        String table = null;
+    public Uri insert(@NonNull Uri uri, ContentValues contentValues) {
+        String table;
         switch (mUriMatcher.match(uri)) {
             case URI_CHANNELS:
                 table = TABLE_CHANNELS;
@@ -141,13 +145,16 @@ public class ChannelContentProvider extends ContentProvider {
         }
         long id = mHelper.getReadableDatabase().insert(table, null, contentValues);
         Uri resultUri = ContentUris.withAppendedId(CHANNEL_CONTENT_URI, id);
-        getContext().getContentResolver().notifyChange(uri, null);
+        Context context = getContext();
+        if (context != null) {
+            context.getContentResolver().notifyChange(uri, null);
+        }
         return resultUri;
     }
 
     @Override
-    public int delete(Uri uri, String selection, String[] selectionArgs) {
-        String table = null;
+    public int delete(@NonNull Uri uri, String selection, String[] selectionArgs) {
+        String table;
         switch (mUriMatcher.match(uri)) {
             case URI_CHANNELS:
                 table = TABLE_CHANNELS;
@@ -175,14 +182,17 @@ public class ChannelContentProvider extends ContentProvider {
                 throw new IllegalArgumentException("Wrong URI: " + uri);
         }
         int cnt = mHelper.getWritableDatabase().delete(table, selection, selectionArgs);
-        getContext().getContentResolver().notifyChange(uri, null);
+        Context context = getContext();
+        if (context != null) {
+            context.getContentResolver().notifyChange(uri, null);
+        }
         return cnt;
     }
 
     @Override
-    public int update(Uri uri, ContentValues values, String selection,
+    public int update(@NonNull Uri uri, ContentValues values, String selection,
                       String[] selectionArgs) {
-        String table = null;
+        String table;
         switch (mUriMatcher.match(uri)) {
             case URI_CHANNELS:
                 table = TABLE_CHANNELS;
@@ -210,15 +220,18 @@ public class ChannelContentProvider extends ContentProvider {
                 throw new IllegalArgumentException("Wrong URI: " + uri);
         }
         int cnt = mHelper.getWritableDatabase().update(table, values, selection, selectionArgs);
-        getContext().getContentResolver().notifyChange(uri, null);
+        Context context = getContext();
+        if (context != null) {
+            context.getContentResolver().notifyChange(uri, null);
+        }
         return cnt;
     }
 
     //Special for items
     @Override
-    public int bulkInsert(Uri uri, ContentValues[] values) {
+    public int bulkInsert(@NonNull Uri uri, @NonNull ContentValues[] values) {
 
-        String table = null;
+        String table;
         switch (mUriMatcher.match(uri)) {
             case URI_CHANNELS:
                 table = TABLE_CHANNELS;
@@ -244,13 +257,16 @@ public class ChannelContentProvider extends ContentProvider {
         }
         db.setTransactionSuccessful();
         db.endTransaction();
-        getContext().getContentResolver().notifyChange(uri, null);
+        Context context = getContext();
+        if (context != null) {
+            context.getContentResolver().notifyChange(uri, null);
+        }
         return cnt;
     }
 
     private class DatabaseHelper extends SQLiteOpenHelper {
 
-        public DatabaseHelper(Context context) {
+        DatabaseHelper(Context context) {
             super(context, DB_NAME, null, VERSION);
         }
 
@@ -274,13 +290,14 @@ public class ChannelContentProvider extends ContentProvider {
     }
 
     public static class ChannelCursor extends CursorWrapper {
-        public ChannelCursor(Cursor cursor, Context context) {
+        ChannelCursor(Cursor cursor, Context context) {
             super(cursor);
             setNotificationUri(context.getContentResolver(), CHANNEL_CONTENT_URI);
         }
         public Channel getChannel() {
-            if (isBeforeFirst() || isAfterLast())
+            if (isBeforeFirst() || isAfterLast()) {
                 return null;
+            }
             Channel channel = new Channel();
             String channelName = getString(getColumnIndex(COLUMN_CHANNELS_CHANNEL_NAME));
             channel.setChannelName(channelName);
@@ -299,8 +316,9 @@ public class ChannelContentProvider extends ContentProvider {
             setNotificationUri(context.getContentResolver(), ITEM_CONTENT_URI);
         }
         public Item getItem() {
-            if (isBeforeFirst() || isAfterLast())
+            if (isBeforeFirst() || isAfterLast()) {
                 return null;
+            }
             Item item = new Item();
 
             String title = getString(getColumnIndex(COLUMN_ITEMS_TITLE));
@@ -317,9 +335,6 @@ public class ChannelContentProvider extends ContentProvider {
 
             int isWatched = getInt(getColumnIndex(COLUMN_ITEMS_IS_WATCHED));
             item.setWatched(isWatched == 1);
-
-            long sessionId = getLong(getColumnIndex(COLUMN_ITEMS_SESSION_ID));
-            item.setSessionId(sessionId);
 
             return item;
         }

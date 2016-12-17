@@ -77,7 +77,6 @@ public class ItemFetcherService extends IntentService {
             return;
         }
         for (Item i : items) {
-            i.setSessionId(currentSessionId + 1);
             i.setWatched(false);
         }
 

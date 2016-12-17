@@ -1,5 +1,6 @@
 package odeen.newrssreader.proj.view;
 
+import android.app.ActionBar;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -38,8 +39,6 @@ public class ItemListFragment extends ListFragment
 
     private long mIdChannel;
     private boolean mIsLoading;
-    private String mUrlChannel;
-
 
     private BroadcastReceiver mOnListUpdate = new BroadcastReceiver() {
         @Override
@@ -61,7 +60,7 @@ public class ItemListFragment extends ListFragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mIdChannel = getArguments().getLong(ItemListActivity.EXTRA_CHANNEL_ID);
-        mUrlChannel = getArguments().getString(ItemListActivity.EXTRA_CHANNEL_URL);
+        getArguments().getString(ItemListActivity.EXTRA_CHANNEL_URL);
         setHasOptionsMenu(true);
         setRetainInstance(true);
         getLoaderManager().initLoader(0, null, this);
@@ -76,10 +75,15 @@ public class ItemListFragment extends ListFragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = super.onCreateView(inflater, container, savedInstanceState);
         mIsLoading = ChannelManager.get(getActivity()).getChannelLoading(mIdChannel);
-        if (mIsLoading)
-            getActivity().getActionBar().setSubtitle("Loading...");
-        if (getListAdapter() == null && !getLoaderManager().hasRunningLoaders())
+        if (mIsLoading) {
+            ActionBar actioBar = getActivity().getActionBar();
+            if (actioBar != null) {
+                actioBar.setSubtitle("Loading...");
+            }
+        }
+        if (getListAdapter() == null && !getLoaderManager().hasRunningLoaders()) {
             getLoaderManager().restartLoader(0, null, this);
+        }
         return v;
     }
 
@@ -146,20 +150,24 @@ public class ItemListFragment extends ListFragment
 
     private void updateStart() {
         mIsLoading = true;
-        getActivity().getActionBar().setSubtitle("Loading...");
+        ActionBar actionBar = getActivity().getActionBar();
+        if (actionBar != null) {
+            actionBar.setSubtitle("Loading...");
+        }
     }
 
     private void updateStop() {
         mIsLoading = false;
-        getActivity().getActionBar().setSubtitle(null);
+        ActionBar actionBar = getActivity().getActionBar();
+        if (actionBar != null) {
+            actionBar.setSubtitle(null);
+        }
         getLoaderManager().restartLoader(0, null, this);
     }
 
-
-
     private static class ItemListCursorLoader extends SQLiteCursorLoader {
         private long mId;
-        public ItemListCursorLoader(Context context, long id) {
+        ItemListCursorLoader(Context context, long id) {
             super(context);
             mId = id;
         }
@@ -175,7 +183,7 @@ public class ItemListFragment extends ListFragment
         private SimpleDateFormat format = new SimpleDateFormat("dd LLL HH:mm");
         private ChannelContentProvider.ItemCursor mCursor;
 
-        public ItemCursorAdapter(Context context, ChannelContentProvider.ItemCursor cursor) {
+        ItemCursorAdapter(Context context, ChannelContentProvider.ItemCursor cursor) {
             super(context, cursor, true);
             mCursor = cursor;
         }
@@ -201,39 +209,9 @@ public class ItemListFragment extends ListFragment
                 pubdate.setText(format.format(item.getPubDate()));
         }
 
-        public Item get(int position) {
+        Item get(int position) {
             mCursor.moveToPosition(position);
             return mCursor.getItem();
         }
     }
-
-
 }
-
-/*
-private class ItemArrayAdapter extends ArrayAdapter<Item> {
-        private SimpleDateFormat format = new SimpleDateFormat("dd LLL HH:mm");
-        public ItemArrayAdapter(ArrayList<Item> items) {
-            super(getActivity(), 0, items);
-        }
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                convertView = getActivity().getLayoutInflater().inflate(R.layout.fragment_channel_list_item, null);
-            }
-            Item item = getItem(position);
-            TextView title = (TextView) convertView.findViewById(R.id.channel_list_item_channelName);
-            title.setText(item.getTitle());
-            if (!item.isWatched()) {
-                title.setTypeface(null, Typeface.BOLD);
-            } else {
-                title.setTypeface(null, Typeface.NORMAL);
-            }
-
-            TextView pubdate = (TextView) convertView.findViewById(R.id.channel_list_item_channelLink);
-            if (item.getPubDate() != null)
-                pubdate.setText(format.format(item.getPubDate()));
-            return convertView;
-        }
-    }
- */

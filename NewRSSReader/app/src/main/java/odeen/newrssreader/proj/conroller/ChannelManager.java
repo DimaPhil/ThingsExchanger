@@ -35,16 +35,19 @@ public class ChannelManager {
     //--------------
     // Channels
     //--------------
-
-    public long insertChannel(String name, String link) {
+    private long insertChannel(String name, String link) {
         ContentValues cv = new ContentValues();
         cv.put(ChannelContentProvider.COLUMN_CHANNELS_CHANNEL_NAME, name);
         cv.put(ChannelContentProvider.COLUMN_CHANNELS_CHANNEL_LINK, link);
-        long id = Long.parseLong(mContext.getContentResolver().insert(mChannelsUri, cv).getLastPathSegment());
-        return id;
+        Uri uri = mContext.getContentResolver().insert(mChannelsUri, cv);
+        if (uri != null) {
+            return Long.parseLong(uri.getLastPathSegment());
+        } else {
+            return Long.MIN_VALUE;
+        }
     }
 
-    public Channel getChannelById(long channelId) {
+    Channel getChannelById(long channelId) {
         Channel channel = null;
         Uri uri = ContentUris.withAppendedId(mChannelsUri, channelId);
         Cursor cursor = mContext.getContentResolver().query(uri, null, null, null, null);
@@ -65,7 +68,7 @@ public class ChannelManager {
         mContext.getContentResolver().delete(uri, null, null);
     }
 
-    public void updateChannel(long id, String name, String link) {
+    private void updateChannel(long id, String name, String link) {
         Uri uri = ContentUris.withAppendedId(mChannelsUri, id);
         ContentValues cv = new ContentValues();
         cv.put(ChannelContentProvider.COLUMN_CHANNELS_CHANNEL_NAME, name);
@@ -83,7 +86,7 @@ public class ChannelManager {
 
     }
 
-    public void setChannelLoading(long id, boolean isLoading) {
+    void setChannelLoading(long id, boolean isLoading) {
         Uri uri = ContentUris.withAppendedId(mChannelsUri, id);
         ContentValues cv = new ContentValues();
         cv.put(ChannelContentProvider.COLUMN_CHANNELS_IS_LOADING, isLoading ? 1 : 0);
@@ -94,11 +97,14 @@ public class ChannelManager {
         Uri uri = ContentUris.withAppendedId(mChannelsUri, id);
         Cursor c = mContext.getContentResolver().query(uri, new String[]{ChannelContentProvider.COLUMN_CHANNELS_IS_LOADING}
                 , null, null, null, null);
-        c.moveToFirst();
-        if (!c.isAfterLast() || !c.isBeforeFirst())
+        if (c == null) {
             return false;
-        boolean res = c.getInt(c.getColumnIndex(ChannelContentProvider.COLUMN_CHANNELS_IS_LOADING)) == 1;
-        return res;
+        }
+        c.moveToFirst();
+        if (!c.isAfterLast() || !c.isBeforeFirst()) {
+            return false;
+        }
+        return c.getInt(c.getColumnIndex(ChannelContentProvider.COLUMN_CHANNELS_IS_LOADING)) == 1;
     }
 
     //--------------
@@ -108,11 +114,13 @@ public class ChannelManager {
     public ChannelContentProvider.ItemCursor queryItems(long id) {
         Cursor cursor = mContext.getContentResolver().query(mItemsUri, null
                 , ChannelContentProvider.COLUMN_ITEMS_CHANNEL_ID +  " = ?", new String[]{String.valueOf(id)}, null);
-        Log.d(TAG, cursor.getCount()+"");
+        if (cursor != null) {
+            Log.d(TAG, cursor.getCount() + "");
+        }
         return new ChannelContentProvider.ItemCursor(cursor, mContext);
     }
 
-    public long getSessionId(long channelId) {
+    long getSessionId(long channelId) {
         Uri uri = mItemsUri;
         Cursor c = mContext.getContentResolver().query(
                 uri
@@ -121,13 +129,16 @@ public class ChannelManager {
                 , new String[]{String.valueOf(channelId)}
                 , null
                 , null);
+        if (c == null) {
+            return -1;
+        }
         c.moveToFirst();
         if (c.isAfterLast() || c.isBeforeFirst() || c.getCount() == 0)
             return 0;
         return c.getLong(c.getColumnIndex(ChannelContentProvider.COLUMN_ITEMS_SESSION_ID));
     }
 
-    public void insertFreshItems(List<Item> items, long channelId, long sessionId) {
+    void insertFreshItems(List<Item> items, long channelId, long sessionId) {
         ContentValues[] cvs = new ContentValues[items.size()];
         for (int it = 0; it < items.size(); it++) {
             Item i = items.get(it);
@@ -144,7 +155,7 @@ public class ChannelManager {
         mContext.getContentResolver().bulkInsert(mItemsUri, cvs);
     }
 
-    public void removeItems(long channelId, long sessionId) {
+    void removeItems(long channelId, long sessionId) {
         int cnt = mContext.getContentResolver().delete(mItemsUri
                 , ChannelContentProvider.COLUMN_ITEMS_CHANNEL_ID + " = ? and "
                         + ChannelContentProvider.COLUMN_ITEMS_SESSION_ID + " = ?"
@@ -172,7 +183,4 @@ public class ChannelManager {
                 , ChannelContentProvider.COLUMN_ITEMS_CHANNEL_ID + " = ?"
                 , new String[]{String.valueOf(id)});
     }
-
-
-
 }

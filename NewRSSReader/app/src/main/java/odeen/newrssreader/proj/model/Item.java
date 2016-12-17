@@ -3,24 +3,11 @@ package odeen.newrssreader.proj.model;
 import java.util.Date;
 
 public class Item {
-
-    private long  mSessionId;
     private String mTitle;
     private Date mPubDate;
     private String mLink;
     private String mDescription;
     private boolean mWatched;
-
-
-    public long getSessionId() {
-        return mSessionId;
-    }
-
-
-    public void setSessionId(long id) {
-        mSessionId = id;
-    }
-
 
     public String getTitle() {
         return mTitle;
@@ -63,8 +50,13 @@ public class Item {
     }
 
     @Override
+    public String toString() {
+        return "title = " + mTitle + ", pubDate = " + mPubDate + ", link = " +
+                mLink + ", description = " + mDescription + ", watched = " + mWatched;
+    }
+
+    @Override
     public boolean equals(Object o) {
-        Item other = (Item)o;
-        return mLink.equals(other.getLink());
+        return o instanceof Item && mLink.equals(((Item) o).getLink());
     }
 }

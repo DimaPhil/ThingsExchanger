@@ -134,8 +134,7 @@ public class ChannelListFragment extends ListFragment implements LoaderManager.L
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle bundle) {
-        ChannelListCursorLoader loader = new ChannelListCursorLoader(getActivity());
-        return loader;
+        return new ChannelListCursorLoader(getActivity());
     }
 
     @Override
@@ -152,7 +151,7 @@ public class ChannelListFragment extends ListFragment implements LoaderManager.L
 
         private ChannelContentProvider.ChannelCursor mCursor;
 
-        public ChannelCursorAdapter(Context context, ChannelContentProvider.ChannelCursor cursor) {
+        ChannelCursorAdapter(Context context, ChannelContentProvider.ChannelCursor cursor) {
             super(context, cursor, true);
             mCursor = cursor;
         }
@@ -172,14 +171,14 @@ public class ChannelListFragment extends ListFragment implements LoaderManager.L
             link.setText(channel.getChannelLink());
         }
 
-        public Channel get(int position) {
+        Channel get(int position) {
             mCursor.moveToPosition(position);
             return mCursor.getChannel();
         }
     }
 
     private static class ChannelListCursorLoader extends SQLiteCursorLoader {
-        public ChannelListCursorLoader(Context context) {
+        ChannelListCursorLoader(Context context) {
             super(context);
         }
         @Override

@@ -7,7 +7,6 @@ import android.util.Log;
 public class ItemListActivity extends SingleFragmentActivity {
     private static final String TAG = "ItemListActivity";
 
-
     public static final String EXTRA_CHANNEL_ID = "CHANNEL_ID";
     public static final String EXTRA_CHANNEL_NAME = "CHANNEL_NAME";
     public static final String EXTRA_CHANNEL_URL = "CHANNEL_URL";
@@ -18,10 +17,12 @@ public class ItemListActivity extends SingleFragmentActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mChannelName = getIntent().getStringExtra(EXTRA_CHANNEL_NAME);
-        if (mChannelName == null && savedInstanceState != null)
+        if (mChannelName == null && savedInstanceState != null) {
             mChannelName = savedInstanceState.getString(EXTRA_CHANNEL_NAME);
-        if (mChannelName != null && getActionBar() != null)
+        }
+        if (mChannelName != null && getActionBar() != null) {
             getActionBar().setTitle(mChannelName);
+        }
         Log.d(TAG, TAG + " created " + mChannelName);
     }
 

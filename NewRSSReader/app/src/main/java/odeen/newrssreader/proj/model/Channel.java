@@ -5,7 +5,9 @@ public class Channel {
     private String mChannelLink;
     private long mId;
 
-    public Channel(){}
+    public Channel() {
+    }
+
     public Channel(String name, String link) {
         mChannelName = name;
         mChannelLink = link;
