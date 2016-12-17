@@ -130,18 +130,21 @@ public class Parser {
         parser.require(XmlPullParser.END_TAG, ns, "title");
         return title;
     }
+
     private String readLink(XmlPullParser parser) throws IOException, XmlPullParserException {
         parser.require(XmlPullParser.START_TAG, ns, "link");
         String link = readText(parser);
         parser.require(XmlPullParser.END_TAG, ns, "link");
         return link;
     }
+
     private String readDescription(XmlPullParser parser) throws IOException, XmlPullParserException {
         parser.require(XmlPullParser.START_TAG, ns, "description");
         String description = readText(parser);
         parser.require(XmlPullParser.END_TAG, ns, "description");
         return description;
     }
+
     private Date readPublicationDate(XmlPullParser parser) throws IOException, XmlPullParserException {
         parser.require(XmlPullParser.START_TAG, ns, "pubDate");
         String date = readText(parser);

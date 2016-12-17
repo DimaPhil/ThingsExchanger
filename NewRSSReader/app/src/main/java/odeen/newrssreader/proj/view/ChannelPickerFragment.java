@@ -96,8 +96,7 @@ public class ChannelPickerFragment extends DialogFragment {
 
             @Override
             public void afterTextChanged(Editable editable) {
-
-            }
+                }
         });
         return new AlertDialog.Builder(getActivity())
                 .setView(v)

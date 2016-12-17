@@ -69,12 +69,12 @@ public class ChannelListFragment extends ListFragment implements LoaderManager.L
     public boolean onContextItemSelected(MenuItem item) {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
         int position = info.position;
-        Channel channel = ((ChannelCursorAdapter)getListAdapter()).get(position);
+        Channel channel = ((ChannelCursorAdapter) getListAdapter()).get(position);
         switch (item.getItemId()) {
             case R.id.menu_item_delete_channel:
                 ChannelManager.get(getActivity()).removeChannel(channel.getId());
                 ChannelManager.get(getActivity()).removeItemsByChannelId(channel.getId());
-                ((ChannelCursorAdapter)getListAdapter()).notifyDataSetChanged();
+                ((ChannelCursorAdapter) getListAdapter()).notifyDataSetChanged();
                 return true;
             case R.id.menu_item_edit_channel:
                 showEditDialog(channel);
@@ -122,7 +122,9 @@ public class ChannelListFragment extends ListFragment implements LoaderManager.L
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode != Activity.RESULT_OK) return;
+        if (resultCode != Activity.RESULT_OK) {
+            return;
+        }
         if (requestCode == REQUEST_CHANNEL) {
             String name = data.getStringExtra(ChannelPickerFragment.EXTRA_CHANNEL_NAME);
             String link = data.getStringExtra(ChannelPickerFragment.EXTRA_CHANNEL_LINK);
@@ -148,7 +150,6 @@ public class ChannelListFragment extends ListFragment implements LoaderManager.L
     }
 
     private static class ChannelCursorAdapter extends CursorAdapter {
-
         private ChannelContentProvider.ChannelCursor mCursor;
 
         ChannelCursorAdapter(Context context, ChannelContentProvider.ChannelCursor cursor) {
@@ -181,6 +182,7 @@ public class ChannelListFragment extends ListFragment implements LoaderManager.L
         ChannelListCursorLoader(Context context) {
             super(context);
         }
+
         @Override
         protected Cursor loadCursor() {
             return ChannelManager.get(getContext()).queryChannels();
