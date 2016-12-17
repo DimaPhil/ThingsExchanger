@@ -9,9 +9,6 @@ import android.widget.TextView;
 import ru.ctddev.ifmo.year2013.foodsharing.R;
 import ru.ctddev.ifmo.year2013.foodsharing.model.User;
 
-/**
- * Created by Daria Yakovleva on 8/4/16.
- */
 public class UserViewHolder extends RecyclerView.ViewHolder {
 
         public View view;

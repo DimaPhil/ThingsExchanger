@@ -7,9 +7,6 @@ import java.util.List;
 import ru.ctddev.ifmo.year2013.foodsharing.model.Item;
 import ru.ctddev.ifmo.year2013.foodsharing.model.Reservation;
 
-/**
- * Created by Daria Yakovleva on 8/4/16.
- */
 public class User implements Item {
     public String iden;
     public String name;

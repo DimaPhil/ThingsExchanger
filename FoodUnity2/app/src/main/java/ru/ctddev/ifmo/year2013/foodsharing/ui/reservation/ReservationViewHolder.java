@@ -13,9 +13,7 @@ import ru.ctddev.ifmo.year2013.foodsharing.model.Donation;
 import ru.ctddev.ifmo.year2013.foodsharing.R;
 import ru.ctddev.ifmo.year2013.foodsharing.ui.productinformation.ProductInformationFragment;
 
-/**
- * Created by Daria Yakovleva on 8/4/16.
- */
+
 public class ReservationViewHolder extends RecyclerView.ViewHolder {
 
     public View view;
@@ -53,7 +51,7 @@ public class ReservationViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void setData(final Donation donation) {
-        Data.productID = donation.id;
+        Data.productID = donation.iden;
         imageView.setImageResource(R.mipmap.pizza);
         nameView.setText(donation.food_description);
         descriptionView.setText(donation.optional_info);

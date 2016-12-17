@@ -14,9 +14,6 @@ import ru.ctddev.ifmo.year2013.foodsharing.model.Donation;
 import ru.ctddev.ifmo.year2013.foodsharing.R;
 import ru.ctddev.ifmo.year2013.foodsharing.ui.CallBack;
 
-/**
- * Created by demouser on 8/4/16.
- */
 public class ProductInformationFragment extends DialogFragment {
 
     CallBack mLister;

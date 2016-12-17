@@ -28,23 +28,25 @@
             android:value="@string/facebook_app_id" />
 
         <activity android:name="ru.ctddev.ifmo.year2013.foodsharing.ui.MainActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity android:name="ru.ctddev.ifmo.year2013.foodsharing.ui.BaseActivity"/>
-        <activity android:name="ru.ctddev.ifmo.year2013.foodsharing.ui.productlist.ProductListsActivity"/>
-        <activity android:name="ru.ctddev.ifmo.year2013.foodsharing.ui.LoginActivity"/>
-        <activity android:name="ru.ctddev.ifmo.year2013.foodsharing.ui.HomeActivity"/>
+
         <activity android:name="ru.ctddev.ifmo.year2013.foodsharing.ui.foodmap.FoodmapActivity"/>
         <activity android:name="ru.ctddev.ifmo.year2013.foodsharing.ui.donate.DonateFoodActivity">
 
-            <meta-data
-                android:name="com.google.android.maps.v2.API_KEY"
-                android:value="AIzaSyA663pTYeeGcG7UHCEI3gwBxBspf-DzDsw" />
         </activity>
+        <activity android:name="ru.ctddev.ifmo.year2013.foodsharing.ui.productlist.ProductListsActivity"/>
+        <activity android:name="ru.ctddev.ifmo.year2013.foodsharing.ui.LoginActivity"></activity>
+        <activity android:name="ru.ctddev.ifmo.year2013.foodsharing.ui.HomeActivity"></activity>
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyA663pTYeeGcG7UHCEI3gwBxBspf-DzDsw" />
     </application>
 
 </manifest>

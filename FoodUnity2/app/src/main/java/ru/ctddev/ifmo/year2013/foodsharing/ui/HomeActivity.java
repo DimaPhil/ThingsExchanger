@@ -83,7 +83,7 @@ public class HomeActivity extends BaseActivity {
             @Override
             public void onChildAdded(DataSnapshot snapshot, String previousChild) {
                 Donation donation = snapshot.getValue(Donation.class);
-                donation.id = snapshot.getKey();
+                donation.iden = snapshot.getKey();
                 donation.reserved = 0;
                 Data.donations.put(snapshot.getKey(), donation);
                 Log.i("DBC", "Got child: " + snapshot.getKey() + ", new size: " + Data.donations.size());

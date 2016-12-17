@@ -158,7 +158,7 @@ public class FoodmapFragment extends SupportMapFragment implements GoogleApiClie
             @Override
             public void onChildAdded(DataSnapshot snapshot, String previousChild) {
                 final Donation donation = snapshot.getValue(Donation.class);
-                donation.setId(snapshot.getKey());
+                donation.setIden(snapshot.getKey());
                 Location location = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
                 Location locationA = new Location("");
                 double marker_latitude = donation.getLatitude(), marker_longitude = donation.getLongitude();

@@ -20,9 +20,6 @@ import java.util.Map;
 import ru.ctddev.ifmo.year2013.foodsharing.model.Donation;
 import ru.ctddev.ifmo.year2013.foodsharing.R;
 
-/**
- * Created by demouser on 8/4/16.
- */
 public class FoodDialogFragment extends DialogFragment {
     int mNum;
 
@@ -75,7 +72,7 @@ public class FoodDialogFragment extends DialogFragment {
                 DatabaseReference donationsRef = FirebaseDatabase.getInstance().getReference("");
 
                 //update the whole donation
-                donations.put("donations/"+donation.getId(),donation.getQuantity() - Integer.parseInt(selected));
+                donations.put("donations/"+donation.getIden(),donation.getQuantity() - Integer.parseInt(selected));
                 donationsRef.updateChildren(donations);
 
             }

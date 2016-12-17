@@ -31,9 +31,6 @@ import ru.ctddev.ifmo.year2013.foodsharing.ui.CallBack;
 import ru.ctddev.ifmo.year2013.foodsharing.ui.donate.DonateFoodActivity;
 import ru.ctddev.ifmo.year2013.foodsharing.ui.foodmap.FoodmapActivity;
 
-/**
- * Created by Daria Yakovleva on 8/4/16.
- */
 public class ProductListFragment extends Fragment {
 
     RecyclerView products;

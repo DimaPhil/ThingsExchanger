@@ -15,9 +15,6 @@ import ru.ctddev.ifmo.year2013.foodsharing.R;
 import ru.ctddev.ifmo.year2013.foodsharing.model.User;
 import ru.ctddev.ifmo.year2013.foodsharing.ui.CallBack;
 
-/**
- * Created by Daria Yakovleva on 8/4/16.
- */
 public class ProductListsActivity extends FragmentActivity implements CallBack {
 
     public static String USERS = "users";

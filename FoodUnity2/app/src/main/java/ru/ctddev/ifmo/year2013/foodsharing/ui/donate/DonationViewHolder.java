@@ -47,7 +47,7 @@ public class DonationViewHolder extends RecyclerView.ViewHolder {
 //                dialog.setArguments();
 //                 TODO how??
 
-                donation.getId();
+                donation.getIden();
                 dialog.show(fm, "Users");
 
                 Log.d("DONATION VIEW HOLDER", " End Item Click");
@@ -70,7 +70,7 @@ public class DonationViewHolder extends RecyclerView.ViewHolder {
     }
     
     public void setData(final Donation donation) {
-        Data.productID = donation.id;
+        Data.productID = donation.iden;
         this.donation = donation;
         nameView.setText(donation.food_description);
         descriptionView.setText(donation.optional_info);

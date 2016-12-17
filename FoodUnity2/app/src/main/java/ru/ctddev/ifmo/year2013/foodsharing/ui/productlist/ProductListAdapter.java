@@ -16,9 +16,6 @@ import ru.ctddev.ifmo.year2013.foodsharing.R;
 import ru.ctddev.ifmo.year2013.foodsharing.ui.donate.DonationViewHolder;
 import ru.ctddev.ifmo.year2013.foodsharing.ui.reservation.ReservationViewHolder;
 
-/**
- * Created by Daria Yakovleva on 8/4/16.
- */
 public class ProductListAdapter extends RecyclerView.Adapter {
     List<Donation> data;
     LayoutInflater inflater = null;

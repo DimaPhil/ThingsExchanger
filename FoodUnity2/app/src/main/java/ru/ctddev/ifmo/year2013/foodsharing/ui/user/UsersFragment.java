@@ -25,9 +25,6 @@ import ru.ctddev.ifmo.year2013.foodsharing.model.Reservation;
 import ru.ctddev.ifmo.year2013.foodsharing.model.User;
 import ru.ctddev.ifmo.year2013.foodsharing.ui.CallBack;
 
-/**
- * Created by Daria Yakovleva on 8/4/16.
- */
 public class UsersFragment extends DialogFragment {
 
     RecyclerView users;

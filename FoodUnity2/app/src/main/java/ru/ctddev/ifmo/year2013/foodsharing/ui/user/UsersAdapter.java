@@ -15,9 +15,6 @@ import java.util.List;
 import ru.ctddev.ifmo.year2013.foodsharing.R;
 import ru.ctddev.ifmo.year2013.foodsharing.model.User;
 
-/**
- * Created by Daria Yakovleva on 8/4/16.
- */
 public class UsersAdapter extends RecyclerView.Adapter<UserViewHolder> {
 
     List<Pair<User, Integer>> data;

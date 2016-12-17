@@ -4,9 +4,6 @@ import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-/**
- * Created by demouser on 8/4/16.
- */
 public class DividerItemDecoration extends RecyclerView.ItemDecoration {
     private int padding;
 

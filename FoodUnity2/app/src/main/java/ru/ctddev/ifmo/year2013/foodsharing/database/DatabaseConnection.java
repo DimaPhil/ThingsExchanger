@@ -15,9 +15,6 @@ import java.util.List;
 import ru.ctddev.ifmo.year2013.foodsharing.model.Donation;
 import ru.ctddev.ifmo.year2013.foodsharing.model.User;
 
-/**
- * Created by Daria Yakovleva on 8/4/16.
- */
 public class DatabaseConnection {
     public static String DONATIONS = "donations";
     public static String USERS = "users";
@@ -70,7 +67,7 @@ public class DatabaseConnection {
                 if (snapshot.getKey().compareTo(id) != 0) return;
                 Donation don = snapshot.getValue(Donation.class);
                 don.reserved = 0;
-                don.id = snapshot.getKey();
+                don.iden = snapshot.getKey();
                 System.out.println(don.toString());
                 tocall.gotDonation(don);
             }
@@ -121,7 +118,7 @@ public class DatabaseConnection {
                 List<Donation> donations = new ArrayList<>();
                 Donation don = snapshot.getValue(Donation.class);
                 don.reserved = 0;
-                don.id = snapshot.getKey();
+                don.iden = snapshot.getKey();
                 donations.add(don);
                 tocall.gotDonations(donations);
             }
