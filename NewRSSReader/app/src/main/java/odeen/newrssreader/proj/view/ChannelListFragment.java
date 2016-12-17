@@ -186,27 +186,4 @@ public class ChannelListFragment extends ListFragment implements LoaderManager.L
             return ChannelManager.get(getContext()).queryChannels();
         }
     }
-
 }
-
-/*
-    private class ChannelArrayAdapter extends ArrayAdapter<Channel> {
-        public ChannelArrayAdapter(ArrayList<Channel> channels) {
-            super(getActivity(), 0, channels);
-        }
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                convertView = getActivity().getLayoutInflater().inflate(R.layout.fragment_channel_list_item, null);
-            }
-            Channel c = getItem(position);
-            TextView name = (TextView) convertView.findViewById(R.id.channel_list_item_channelName);
-            name.setText(c.getChannelName());
-            TextView link = (TextView) convertView.findViewById(R.id.channel_list_item_channelLink);
-            link.setText(c.getChannelLink());
-            return convertView;
-        }
-
-    }
-
- */

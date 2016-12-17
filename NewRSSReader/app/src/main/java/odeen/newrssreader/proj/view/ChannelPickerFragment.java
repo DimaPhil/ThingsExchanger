@@ -52,17 +52,21 @@ public class ChannelPickerFragment extends DialogFragment {
         mName = getArguments().getString(EXTRA_CHANNEL_NAME);
         mLink = getArguments().getString(EXTRA_CHANNEL_LINK);
         mId = getArguments().getLong(EXTRA_CHANNEL_ID);
-        if (mName == null)
+        if (mName == null) {
             mName = "";
-        if (mLink == null)
+        }
+        if (mLink == null) {
             mLink = "";
+        }
         View v = getActivity().getLayoutInflater().inflate(R.layout.dialog_channel, null);
         EditText name = (EditText) v.findViewById(R.id.dialog_channel_namePicker);
         EditText link = (EditText) v.findViewById(R.id.dialog_channel_linkPicker);
-        if (mName != null)
+        if (mName != null) {
             name.setText(mName);
-        if (mLink != null)
+        }
+        if (mLink != null) {
             link.setText(mLink);
+        }
         //TODO: Empty input
         name.addTextChangedListener(new TextWatcher() {
             @Override
@@ -77,13 +81,11 @@ public class ChannelPickerFragment extends DialogFragment {
             }
             @Override
             public void afterTextChanged(Editable editable) {
-
             }
         });
         link.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-
             }
 
             @Override

@@ -172,27 +172,34 @@ public class Parser {
 
         @Override
         public void characters(char[] ch, int start, int length) throws SAXException {
-            last = "";
-            for (int i = 0; i < length; i++)
-                last += ch[start + i];
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < length; i++) {
+                sb.append(ch[start + i]);
+            }
+            last = sb.toString();
         }
 
         @Override
         public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-            if (qName.equals("item"))
+            if (qName.equals("item")) {
                 current = new Item();
+            }
         }
 
         @Override
         public void endElement(String uri, String localName, String qName) throws SAXException {
-            if (current == null)
+            if (current == null) {
                 return;
-            if (qName.equals("title"))
+            }
+            if (qName.equals("title")) {
                 current.setTitle(last);
-            if (qName.equals("link"))
+            }
+            if (qName.equals("link")) {
                 current.setLink(last);
-            if (qName.equals("description"))
+            }
+            if (qName.equals("description")) {
                 current.setDescription(last);
+            }
             if (qName.equals("pubDate")) {
                 Log.d("pubDate", last);
                 Date res = null;
@@ -205,8 +212,9 @@ public class Parser {
                     res = new Date(0);
                 current.setPubDate(res);
             }
-            if (qName.equals("item"))
+            if (qName.equals("item")) {
                 output.add(current);
+            }
         }
 
         @Override
@@ -220,5 +228,4 @@ public class Parser {
             super.endDocument();
         }
     }
-
 }

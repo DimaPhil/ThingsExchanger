@@ -3,17 +3,12 @@ package parser;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.util.List;
 
 import odeen.newrssreader.proj.model.Item;
 import odeen.newrssreader.proj.parser.Parser;
 
-/**
- * Created by dmitry on 17.12.16.
- */
 public class ParserResponseTest {
     private static final String response = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
             "<rss version=\"2.0\" xmlns:atom=\"http://www.w3.org/2005/Atom\">\n" +

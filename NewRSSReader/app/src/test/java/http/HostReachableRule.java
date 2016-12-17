@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.lang.annotation.*;
 import java.util.concurrent.TimeUnit;
 
-public class HostReachableRule implements TestRule {
+class HostReachableRule implements TestRule {
     private static final int TIMEOUT = 1_000;
 
     @Retention(RetentionPolicy.RUNTIME)
@@ -24,8 +24,7 @@ public class HostReachableRule implements TestRule {
 
     @Override
     public Statement apply(Statement statement, Description description) {
-        HostReachable hostReachable
-                = description.getAnnotation(HostReachable.class);
+        HostReachable hostReachable = description.getAnnotation(HostReachable.class);
 
         if (hostReachable == null) {
             return statement;
@@ -79,8 +78,7 @@ public class HostReachableRule implements TestRule {
 
     private static boolean nativePingImpl(String cmd, String host) {
         try {
-            Process pingProcess
-                    = new ProcessBuilder(cmd, "-c", "1", host).start();
+            Process pingProcess = new ProcessBuilder(cmd, "-c", "1", host).start();
             return waitFor(pingProcess, TIMEOUT, TimeUnit.MILLISECONDS) && pingProcess.exitValue() == 0;
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();

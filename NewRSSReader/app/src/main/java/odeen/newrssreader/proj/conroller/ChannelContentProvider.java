@@ -34,7 +34,6 @@ public class ChannelContentProvider extends ContentProvider {
     public static final String COLUMN_CHANNELS_CHANNEL_LINK = "channel_link";
     public static final String COLUMN_CHANNELS_IS_LOADING = "channel_is_loading";
 
-
     public static final String TABLE_ITEMS = "items";
     public static final String COLUMN_ITEMS_ID = "_id";
     public static final String COLUMN_ITEMS_CHANNEL_ID = "channel_id";
@@ -248,7 +247,8 @@ public class ChannelContentProvider extends ContentProvider {
         for (ContentValues cv : values) {
             String selection = ChannelContentProvider.COLUMN_ITEMS_CHANNEL_ID + " = ? and "
                     + ChannelContentProvider.COLUMN_ITEMS_LINK + " = ?";
-            String[] selectionArgs = new String[]{String.valueOf(cv.getAsLong(COLUMN_ITEMS_CHANNEL_ID)), cv.getAsString(COLUMN_ITEMS_LINK)};
+            String[] selectionArgs = new String[]{String.valueOf(cv.getAsLong(COLUMN_ITEMS_CHANNEL_ID)),
+                                                                 cv.getAsString(COLUMN_ITEMS_LINK)};
             int affected = db.update(table, cv, selection, selectionArgs);
             if (affected == 0) {
                 affected = db.insert(table, null, cv) > 0 ? 1 : 0;
@@ -273,15 +273,16 @@ public class ChannelContentProvider extends ContentProvider {
         @Override
         public void onCreate(SQLiteDatabase db) {
             db.execSQL("create table channels (" +
-                            "_id integer primary key autoincrement, channel_name string, channel_link string, channel_is_loading integer default 0)"
+                            "_id integer primary key autoincrement, channel_name string, " +
+                            "channel_link string, channel_is_loading integer default 0);"
             );
             db.execSQL("create table items (" +
                             "_id integer primary key autoincrement, " +
                             "channel_id integer references channels(_id), session_id integer default 0, " +
                             "title string, pubdate long, link string, " +
-                            "description string, is_watched integer default 0)"
+                            "description string, is_watched integer default 0);"
             );
-            db.execSQL("create unique index my_index on items (channel_id, link)");
+            db.execSQL("create unique index my_index on items (channel_id, link);");
         }
 
         @Override
@@ -339,6 +340,4 @@ public class ChannelContentProvider extends ContentProvider {
             return item;
         }
     }
-
-
 }

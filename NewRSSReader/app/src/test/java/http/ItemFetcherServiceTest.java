@@ -9,9 +9,6 @@ import java.io.InputStream;
 
 import odeen.newrssreader.proj.conroller.ItemFetcherService;
 
-/**
- * Created by dmitry on 17.12.16.
- */
 @HostReachableRule.HostReachable("google.com")
 public class ItemFetcherServiceTest {
 

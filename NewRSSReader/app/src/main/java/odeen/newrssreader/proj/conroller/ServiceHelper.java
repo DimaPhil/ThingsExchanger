@@ -7,9 +7,6 @@ import android.widget.Toast;
 
 import odeen.newrssreader.proj.view.ItemListActivity;
 
-/**
- * Created by Женя on 06.11.2014.
- */
 public class ServiceHelper {
     private Context mContext;
     private static ServiceHelper sHelper;
@@ -39,6 +36,4 @@ public class ServiceHelper {
         boolean isNetworkAvailable = cm.getBackgroundDataSetting() && cm.getActiveNetworkInfo() != null;
         return isNetworkAvailable;
     }
-
-
 }
