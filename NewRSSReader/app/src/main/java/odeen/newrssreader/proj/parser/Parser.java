@@ -26,7 +26,7 @@ import javax.xml.parsers.SAXParserFactory;
 
 import odeen.newrssreader.proj.model.Item;
 
-public class Parser {
+public class Parser implements IParser {
     private static final String ns = null;
     private SimpleDateFormat format = new SimpleDateFormat("E, dddd MMMM yyyy k:m:s z");
     private List<Item> output;
@@ -51,7 +51,7 @@ public class Parser {
         return output;
     }
 
-    private List<Item> readFeed(XmlPullParser parser) throws XmlPullParserException, IOException {
+    public List<Item> readFeed(XmlPullParser parser) throws XmlPullParserException, IOException {
         List<Item> items = new ArrayList<>();
         parser.require(XmlPullParser.START_TAG, ns, "rss");
         parser.nextTag();
@@ -70,7 +70,7 @@ public class Parser {
         return items;
     }
 
-    private Item readItem(XmlPullParser parser) throws IOException, XmlPullParserException {
+    public Item readItem(XmlPullParser parser) throws IOException, XmlPullParserException {
         parser.require(XmlPullParser.START_TAG, ns, "item");
         String title = null;
         String description = null;
@@ -107,7 +107,7 @@ public class Parser {
         return item;
     }
 
-    private void skip(XmlPullParser parser) throws XmlPullParserException, IOException {
+    public void skip(XmlPullParser parser) throws XmlPullParserException, IOException {
         if (parser.getEventType() != XmlPullParser.START_TAG) {
             throw new IllegalStateException();
         }

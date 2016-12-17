@@ -53,8 +53,9 @@ public class ChannelManager {
         Cursor cursor = mContext.getContentResolver().query(uri, null, null, null, null);
         ChannelContentProvider.ChannelCursor channelCursor = new ChannelContentProvider.ChannelCursor(cursor, mContext);
         channelCursor.moveToFirst();
-        if (!channelCursor.isAfterLast() && !channelCursor.isBeforeFirst())
+        if (!channelCursor.isAfterLast() && !channelCursor.isBeforeFirst()) {
             channel = channelCursor.getChannel();
+        }
         return channel;
     }
 
@@ -77,11 +78,11 @@ public class ChannelManager {
     }
 
     public long insertOrUpdateChannel(long id, String name, String link) {
-        if (id == -1)
+        if (id == -1) {
             return insertChannel(name, link);
-        else {
+        } else {
             updateChannel(id, name, link);
-            return  id;
+            return id;
         }
 
     }
@@ -133,8 +134,9 @@ public class ChannelManager {
             return -1;
         }
         c.moveToFirst();
-        if (c.isAfterLast() || c.isBeforeFirst() || c.getCount() == 0)
+        if (c.isAfterLast() || c.isBeforeFirst() || c.getCount() == 0) {
             return 0;
+        }
         return c.getLong(c.getColumnIndex(ChannelContentProvider.COLUMN_ITEMS_SESSION_ID));
     }
 
