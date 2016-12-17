@@ -23,6 +23,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 
 import ru.ctddev.ifmo.year2013.foodsharing.R;
+import ru.ctddev.ifmo.year2013.foodsharing.ui.productlist.ProductListsActivity;
 
 public class BaseActivity extends AppCompatActivity {
 

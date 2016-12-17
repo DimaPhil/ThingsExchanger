@@ -10,6 +10,6 @@ tools:context="ru.ctddev.ifmo.year2013.foodsharing.ui.MainActivity"
     android:id="@+id/map"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    class="ru.ctddev.ifmo.year2013.foodsharing.ui.FoodmapFragment" />
+    class="ru.ctddev.ifmo.year2013.foodsharing.ui.foodmap.FoodmapFragment" />
 
 </RelativeLayout>

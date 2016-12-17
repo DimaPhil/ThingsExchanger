@@ -1,4 +1,4 @@
-package ru.ctddev.ifmo.year2013.foodsharing.ui;
+package ru.ctddev.ifmo.year2013.foodsharing.ui.productlist;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -27,6 +27,9 @@ import ru.ctddev.ifmo.year2013.foodsharing.model.Data;
 import ru.ctddev.ifmo.year2013.foodsharing.model.Donation;
 import ru.ctddev.ifmo.year2013.foodsharing.R;
 import ru.ctddev.ifmo.year2013.foodsharing.model.Reservation;
+import ru.ctddev.ifmo.year2013.foodsharing.ui.CallBack;
+import ru.ctddev.ifmo.year2013.foodsharing.ui.donate.DonateFoodActivity;
+import ru.ctddev.ifmo.year2013.foodsharing.ui.foodmap.FoodmapActivity;
 
 /**
  * Created by Daria Yakovleva on 8/4/16.
@@ -96,7 +99,7 @@ public class ProductListFragment extends Fragment {
                 });
                 List<Reservation> userIdReservations = Data.users.get(userID).getReservations();//activity.getUsers().get(userID).getReservations();
                 for (Reservation id: userIdReservations) {
-                    donationsList.add(donations.get(id.iden));
+                    donationsList.add(donations.get(id.id));
                 }
             }
             break;

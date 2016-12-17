@@ -1,4 +1,4 @@
-package com.camp.android.luciana.foodunity;
+package year2013.foodsharing.UI;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -25,19 +25,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import year2013.foodsharing.Product;
+import year2013.foodsharing.R;
+
 /**
- * Created by Daria Yakovleva on 8/4/16.
+ * Created by Daria Yakovleva.
  */
 public class ProductListFragment extends Fragment {
 
     RecyclerView products;
     ProductListAdapter productListAdapter;
     CallBack mLister;
-    List<Donation> donationsList;
+    List<Product> donationsList;
     FloatingActionButton add;
     ProductListsActivity activity;
     View v;
-    FirebaseAuth mAuth;
 
     String userID = "-KOOrnYrzKryy84k77tr";
 

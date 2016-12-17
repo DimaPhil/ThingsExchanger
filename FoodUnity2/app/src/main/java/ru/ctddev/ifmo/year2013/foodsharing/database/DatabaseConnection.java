@@ -70,7 +70,7 @@ public class DatabaseConnection {
                 if (snapshot.getKey().compareTo(id) != 0) return;
                 Donation don = snapshot.getValue(Donation.class);
                 don.reserved = 0;
-                don.iden = snapshot.getKey();
+                don.id = snapshot.getKey();
                 System.out.println(don.toString());
                 tocall.gotDonation(don);
             }
@@ -121,7 +121,7 @@ public class DatabaseConnection {
                 List<Donation> donations = new ArrayList<>();
                 Donation don = snapshot.getValue(Donation.class);
                 don.reserved = 0;
-                don.iden = snapshot.getKey();
+                don.id = snapshot.getKey();
                 donations.add(don);
                 tocall.gotDonations(donations);
             }

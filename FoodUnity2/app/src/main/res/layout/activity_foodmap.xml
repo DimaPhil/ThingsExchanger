@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="ru.ctddev.ifmo.year2013.foodsharing.ui.FoodmapActivity">
+    tools:context="ru.ctddev.ifmo.year2013.foodsharing.ui.foodmap.FoodmapActivity">
     <LinearLayout
         android:id="@+id/search"
         android:layout_width="match_parent"
@@ -31,10 +31,10 @@
         android:onClick="onSearchButtonClicked"
         android:text="Search" />
     </LinearLayout>
-    tools:context="ru.ctddev.ifmo.year2013.foodsharing.ui.FoodmapActivity"
+    tools:context="ru.ctddev.ifmo.year2013.foodsharing.ui.foodmap.FoodmapActivity"
     android:background="@color/colorBackground">
     <fragment
-        android:name="ru.ctddev.ifmo.year2013.foodsharing.ui.FoodmapFragment"
+        android:name="ru.ctddev.ifmo.year2013.foodsharing.ui.foodmap.FoodmapFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/map_fragment"

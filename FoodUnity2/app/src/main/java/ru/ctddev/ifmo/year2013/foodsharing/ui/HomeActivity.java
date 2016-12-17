@@ -19,6 +19,8 @@ import ru.ctddev.ifmo.year2013.foodsharing.database.DatabaseConnection;
 import ru.ctddev.ifmo.year2013.foodsharing.model.Donation;
 import ru.ctddev.ifmo.year2013.foodsharing.R;
 import ru.ctddev.ifmo.year2013.foodsharing.model.User;
+import ru.ctddev.ifmo.year2013.foodsharing.ui.donate.DonateFoodActivity;
+import ru.ctddev.ifmo.year2013.foodsharing.ui.foodmap.FoodmapActivity;
 
 public class HomeActivity extends BaseActivity {
 
@@ -81,7 +83,7 @@ public class HomeActivity extends BaseActivity {
             @Override
             public void onChildAdded(DataSnapshot snapshot, String previousChild) {
                 Donation donation = snapshot.getValue(Donation.class);
-                donation.iden = snapshot.getKey();
+                donation.id = snapshot.getKey();
                 donation.reserved = 0;
                 Data.donations.put(snapshot.getKey(), donation);
                 Log.i("DBC", "Got child: " + snapshot.getKey() + ", new size: " + Data.donations.size());

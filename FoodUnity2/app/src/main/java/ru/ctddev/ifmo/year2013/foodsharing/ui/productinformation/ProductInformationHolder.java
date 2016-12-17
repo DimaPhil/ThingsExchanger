@@ -1,4 +1,4 @@
-package ru.ctddev.ifmo.year2013.foodsharing.ui;
+package ru.ctddev.ifmo.year2013.foodsharing.ui.productinformation;
 
 import android.view.View;
 import android.widget.ImageView;

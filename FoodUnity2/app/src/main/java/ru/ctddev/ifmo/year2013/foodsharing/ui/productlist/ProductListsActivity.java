@@ -1,4 +1,4 @@
-package ru.ctddev.ifmo.year2013.foodsharing.ui;
+package ru.ctddev.ifmo.year2013.foodsharing.ui.productlist;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -13,6 +13,7 @@ import java.util.Map;
 import ru.ctddev.ifmo.year2013.foodsharing.model.Donation;
 import ru.ctddev.ifmo.year2013.foodsharing.R;
 import ru.ctddev.ifmo.year2013.foodsharing.model.User;
+import ru.ctddev.ifmo.year2013.foodsharing.ui.CallBack;
 
 /**
  * Created by Daria Yakovleva on 8/4/16.
@@ -39,7 +40,7 @@ public class ProductListsActivity extends FragmentActivity implements CallBack {
                     @Override
                     public void gotUser(User user) {
                         //TODO do smth with user
-                        usersMap.put(user.iden, user);
+                        usersMap.put(user.id, user);
                         Data.users = usersMap;
                         System.out.println(user.toString());
                     }
@@ -52,7 +53,7 @@ public class ProductListsActivity extends FragmentActivity implements CallBack {
                     @Override
                     public void gotUsers(List<User> users) {
                         for (User user : users) {
-                            usersMap.put(user.iden, user);
+                            usersMap.put(user.id, user);
                             Data.users = usersMap;
                             System.out.println(user.toString());
                         }
@@ -61,7 +62,7 @@ public class ProductListsActivity extends FragmentActivity implements CallBack {
                     @Override
                     public void gotDonations(List<Donation> donations) {
                         for (Donation donation : donations) {
-                            donationsMap.put(donation.iden, donation);
+                            donationsMap.put(donation.id, donation);
                             Data.donations = donationsMap;
                             System.out.println(donation.toString());
                         }
