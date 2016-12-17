@@ -1,4 +1,4 @@
-package ru.ctddev.ifmo.year2013.foodsharing.ui;
+package ru.ctddev.ifmo.year2013.foodsharing.ui.reservation;
 
 import android.app.Activity;
 import android.app.FragmentManager;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 import ru.ctddev.ifmo.year2013.foodsharing.model.Data;
 import ru.ctddev.ifmo.year2013.foodsharing.model.Donation;
 import ru.ctddev.ifmo.year2013.foodsharing.R;
+import ru.ctddev.ifmo.year2013.foodsharing.ui.productinformation.ProductInformationFragment;
 
 /**
  * Created by Daria Yakovleva on 8/4/16.
@@ -52,7 +53,7 @@ public class ReservationViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void setData(final Donation donation) {
-        Data.productID = donation.iden;
+        Data.productID = donation.id;
         imageView.setImageResource(R.mipmap.pizza);
         nameView.setText(donation.food_description);
         descriptionView.setText(donation.optional_info);

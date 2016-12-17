@@ -1,4 +1,4 @@
-package ru.ctddev.ifmo.year2013.foodsharing.ui;
+package ru.ctddev.ifmo.year2013.foodsharing.ui.productlist;
 
 import android.app.Activity;
 import android.content.Context;
@@ -13,6 +13,8 @@ import java.util.List;
 
 import ru.ctddev.ifmo.year2013.foodsharing.model.Donation;
 import ru.ctddev.ifmo.year2013.foodsharing.R;
+import ru.ctddev.ifmo.year2013.foodsharing.ui.donate.DonationViewHolder;
+import ru.ctddev.ifmo.year2013.foodsharing.ui.reservation.ReservationViewHolder;
 
 /**
  * Created by Daria Yakovleva on 8/4/16.

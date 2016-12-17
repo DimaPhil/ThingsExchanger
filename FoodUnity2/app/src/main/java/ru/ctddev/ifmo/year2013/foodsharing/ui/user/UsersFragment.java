@@ -1,4 +1,4 @@
-package ru.ctddev.ifmo.year2013.foodsharing.ui;
+package ru.ctddev.ifmo.year2013.foodsharing.ui.user;
 
 import android.app.Activity;
 import android.app.DialogFragment;
@@ -23,6 +23,7 @@ import ru.ctddev.ifmo.year2013.foodsharing.model.Data;
 import ru.ctddev.ifmo.year2013.foodsharing.R;
 import ru.ctddev.ifmo.year2013.foodsharing.model.Reservation;
 import ru.ctddev.ifmo.year2013.foodsharing.model.User;
+import ru.ctddev.ifmo.year2013.foodsharing.ui.CallBack;
 
 /**
  * Created by Daria Yakovleva on 8/4/16.
@@ -53,9 +54,9 @@ public class UsersFragment extends DialogFragment {
 
         for (User user: Data.users.values()) {
             for (Reservation reserve: user.getReservations()) {
-                System.err.println(reserve.iden + " " + Data.productID+ " " + reserve.quantity);
-                if (reserve.iden != null) {
-                    if (reserve.iden.compareTo(Data.productID) == 0)
+                System.err.println(reserve.id + " " + Data.productID+ " " + reserve.quantity);
+                if (reserve.id != null) {
+                    if (reserve.id.compareTo(Data.productID) == 0)
                         usersList.add(new Pair<User, Integer>(user, reserve.quantity));
                 }
             }

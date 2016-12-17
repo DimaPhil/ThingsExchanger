@@ -1,19 +1,16 @@
 package ru.ctddev.ifmo.year2013.foodsharing.model;
 
-/**
- * Created by demouser on 8/5/16.
- */
 public class Reservation {
-    public String iden;
+    public String id;
     public Integer quantity;
     public Reservation() {}
-    public Reservation(String iden, Integer quantity) {
-        this.iden = iden;
+    public Reservation(String id, Integer quantity) {
+        this.id = id;
         this.quantity = quantity;
     }
 
-    public void setIden(String iden) {
-        this.iden = iden;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void setQuantity(Integer quantity) {

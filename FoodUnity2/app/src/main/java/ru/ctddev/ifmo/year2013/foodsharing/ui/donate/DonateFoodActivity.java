@@ -1,4 +1,4 @@
-package ru.ctddev.ifmo.year2013.foodsharing.ui;
+package ru.ctddev.ifmo.year2013.foodsharing.ui.donate;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -27,6 +27,8 @@ import java.util.Locale;
 
 import ru.ctddev.ifmo.year2013.foodsharing.model.Donation;
 import ru.ctddev.ifmo.year2013.foodsharing.R;
+import ru.ctddev.ifmo.year2013.foodsharing.ui.BaseActivity;
+import ru.ctddev.ifmo.year2013.foodsharing.ui.HomeActivity;
 
 public class DonateFoodActivity extends BaseActivity {
 

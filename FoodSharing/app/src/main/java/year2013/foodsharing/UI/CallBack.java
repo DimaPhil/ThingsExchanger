@@ -1,5 +1,8 @@
-package ru.ctddev.ifmo.year2013.foodsharing.ui;
+package year2013.foodsharing.UI;
 
+/**
+ * Created by Daria Yakovleva.
+ */
 public interface CallBack {
     public void onItemClick(String itemName);
 }

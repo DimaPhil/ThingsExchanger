@@ -75,7 +75,7 @@ public class FoodDialogFragment extends DialogFragment {
                 DatabaseReference donationsRef = FirebaseDatabase.getInstance().getReference("");
 
                 //update the whole donation
-                donations.put("donations/"+donation.getIden(),donation.getQuantity() - Integer.parseInt(selected));
+                donations.put("donations/"+donation.getId(),donation.getQuantity() - Integer.parseInt(selected));
                 donationsRef.updateChildren(donations);
 
             }

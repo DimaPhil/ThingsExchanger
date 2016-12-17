@@ -1,4 +1,4 @@
-package ru.ctddev.ifmo.year2013.foodsharing.ui;
+package ru.ctddev.ifmo.year2013.foodsharing.ui.foodmap;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -158,7 +158,7 @@ public class FoodmapFragment extends SupportMapFragment implements GoogleApiClie
             @Override
             public void onChildAdded(DataSnapshot snapshot, String previousChild) {
                 final Donation donation = snapshot.getValue(Donation.class);
-                donation.setIden(snapshot.getKey());
+                donation.setId(snapshot.getKey());
                 Location location = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
                 Location locationA = new Location("");
                 double marker_latitude = donation.getLatitude(), marker_longitude = donation.getLongitude();

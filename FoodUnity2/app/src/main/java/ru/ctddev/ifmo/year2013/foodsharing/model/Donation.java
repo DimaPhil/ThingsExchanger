@@ -1,9 +1,5 @@
 package ru.ctddev.ifmo.year2013.foodsharing.model;
 
-/**
- * Created by demouser on 8/4/16.
- */
-
 public class Donation implements Item {
 
     public String food_description;
@@ -14,7 +10,7 @@ public class Donation implements Item {
     private String address;
     private double latitude;
     private double longitude;
-    public String iden;
+    public String id;
     public String expiry_date;
     public int reserved = 0;
     private int quantity = 0;
@@ -25,7 +21,7 @@ public class Donation implements Item {
         this("1", "food", "26/10/2020", "good", "1", 3);
     }
     Donation(String id, String name, String expiry_date, String description, String ownerID, int count) {
-        this.iden = id;
+        this.id = id;
         this.food_description = name;
         this.expiry_date = expiry_date;
         this.optional_info = description;
@@ -48,7 +44,7 @@ public class Donation implements Item {
 
     @Override
     public String toString() {
-        return iden + " " + food_description + " " + expiry_date + " " + optional_info + " " + display_name + " " + quantity + " " + reserved;
+        return id + " " + food_description + " " + expiry_date + " " + optional_info + " " + display_name + " " + quantity + " " + reserved;
     }
 
     public String getOptional_info() {
@@ -130,8 +126,8 @@ public class Donation implements Item {
         this.food_description = food_description;
     }
 
-    public void setIden(String iden) {
-        this.iden = iden;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void setLatitude(double latitude) {
@@ -170,8 +166,8 @@ public class Donation implements Item {
         return food_description;
     }
 
-    public String getIden() {
-        return iden;
+    public String getId() {
+        return id;
     }
 }
 

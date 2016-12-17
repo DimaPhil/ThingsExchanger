@@ -1,4 +1,4 @@
-package com.camp.android.luciana.foodunity;
+package year2013.foodsharing.UI;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,11 +11,13 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+import year2013.foodsharing.Product;
+
 /**
- * Created by Daria Yakovleva on 8/4/16.
+ * Created by Daria Yakovleva.
  */
 public class ProductListAdapter extends RecyclerView.Adapter {
-    List<Donation> data;
+    List<Product> data;
     LayoutInflater inflater = null;
     Activity activity = null;
     Integer viewID = -1;

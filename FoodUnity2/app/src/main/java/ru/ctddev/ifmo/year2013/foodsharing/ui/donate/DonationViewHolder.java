@@ -1,4 +1,4 @@
-package ru.ctddev.ifmo.year2013.foodsharing.ui;
+package ru.ctddev.ifmo.year2013.foodsharing.ui.donate;
 
 import android.app.Activity;
 import android.app.FragmentManager;
@@ -15,10 +15,8 @@ import com.dinuscxj.progressbar.CircleProgressBar;
 import ru.ctddev.ifmo.year2013.foodsharing.model.Data;
 import ru.ctddev.ifmo.year2013.foodsharing.model.Donation;
 import ru.ctddev.ifmo.year2013.foodsharing.R;
+import ru.ctddev.ifmo.year2013.foodsharing.ui.user.UsersFragment;
 
-/**
- * Created by Daria Yakovleva on 8/4/16.
- */
 public class DonationViewHolder extends RecyclerView.ViewHolder {
 
     public View view;
@@ -49,7 +47,7 @@ public class DonationViewHolder extends RecyclerView.ViewHolder {
 //                dialog.setArguments();
 //                 TODO how??
 
-                donation.getIden();
+                donation.getId();
                 dialog.show(fm, "Users");
 
                 Log.d("DONATION VIEW HOLDER", " End Item Click");
@@ -72,7 +70,7 @@ public class DonationViewHolder extends RecyclerView.ViewHolder {
     }
     
     public void setData(final Donation donation) {
-        Data.productID = donation.iden;
+        Data.productID = donation.id;
         this.donation = donation;
         nameView.setText(donation.food_description);
         descriptionView.setText(donation.optional_info);

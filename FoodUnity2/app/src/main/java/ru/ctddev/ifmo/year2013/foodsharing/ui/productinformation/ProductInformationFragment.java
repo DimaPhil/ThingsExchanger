@@ -1,4 +1,4 @@
-package ru.ctddev.ifmo.year2013.foodsharing.ui;
+package ru.ctddev.ifmo.year2013.foodsharing.ui.productinformation;
 
 import android.app.Activity;
 import android.app.DialogFragment;
@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import ru.ctddev.ifmo.year2013.foodsharing.model.Data;
 import ru.ctddev.ifmo.year2013.foodsharing.model.Donation;
 import ru.ctddev.ifmo.year2013.foodsharing.R;
+import ru.ctddev.ifmo.year2013.foodsharing.ui.CallBack;
 
 /**
  * Created by demouser on 8/4/16.
