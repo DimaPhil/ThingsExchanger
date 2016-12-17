@@ -4,9 +4,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 
-/**
- * Created by Женя on 03.11.2014.
- */
 public class ItemListActivity extends SingleFragmentActivity {
     private static final String TAG = "ItemListActivity";
 

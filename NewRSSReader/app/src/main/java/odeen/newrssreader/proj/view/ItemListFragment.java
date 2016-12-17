@@ -6,35 +6,22 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.Cursor;
 import android.graphics.Typeface;
-import android.net.ConnectivityManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.ListFragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.CursorAdapter;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 
 import odeen.newrssreader.R;
 import odeen.newrssreader.proj.conroller.ChannelContentProvider;
@@ -44,9 +31,6 @@ import odeen.newrssreader.proj.conroller.SQLiteCursorLoader;
 import odeen.newrssreader.proj.conroller.ServiceHelper;
 import odeen.newrssreader.proj.model.Item;
 
-/**
- * Created by Женя on 03.11.2014.
- */
 public class ItemListFragment extends ListFragment
         implements LoaderManager.LoaderCallbacks<Cursor> {
 

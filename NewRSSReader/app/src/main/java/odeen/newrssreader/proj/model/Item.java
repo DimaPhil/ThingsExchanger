@@ -1,11 +1,7 @@
 package odeen.newrssreader.proj.model;
 
 import java.util.Date;
-import java.util.UUID;
 
-/**
- * Created by Женя on 03.11.2014.
- */
 public class Item {
 
     private long  mSessionId;

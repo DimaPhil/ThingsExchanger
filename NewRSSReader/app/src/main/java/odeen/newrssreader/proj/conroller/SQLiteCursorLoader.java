@@ -4,10 +4,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.support.v4.content.AsyncTaskLoader;
 
-
-/**
- * Created by Женя on 03.11.2014.
- */
 public abstract class SQLiteCursorLoader extends AsyncTaskLoader<Cursor> {
 
     private Cursor mCursor;
@@ -21,13 +17,6 @@ public abstract class SQLiteCursorLoader extends AsyncTaskLoader<Cursor> {
     @Override
     public Cursor loadInBackground() {
         Cursor cursor = loadCursor();
-        /*
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        */
         if (cursor != null) {
             cursor.getCount();
         }
@@ -67,6 +56,7 @@ public abstract class SQLiteCursorLoader extends AsyncTaskLoader<Cursor> {
             cursor.close();
         }
     }
+
     @Override
     public void onReset() {
         super.onReset();
@@ -76,5 +66,4 @@ public abstract class SQLiteCursorLoader extends AsyncTaskLoader<Cursor> {
         }
         mCursor = null;
     }
-
 }

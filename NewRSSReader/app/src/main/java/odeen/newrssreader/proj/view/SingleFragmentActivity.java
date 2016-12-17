@@ -8,9 +8,6 @@ import android.widget.FrameLayout;
 
 import odeen.newrssreader.R;
 
-/**
- * Created by Женя on 03.11.2014.
- */
 public abstract class SingleFragmentActivity extends FragmentActivity {
     protected static final String FRAGMENT_TAG = "SingleFragmentActivity.Fragment";
 

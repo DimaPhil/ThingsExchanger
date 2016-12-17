@@ -18,9 +18,6 @@ import java.util.Date;
 import odeen.newrssreader.proj.model.Channel;
 import odeen.newrssreader.proj.model.Item;
 
-/**
- * Created by Женя on 09.11.2014.
- */
 public class ChannelContentProvider extends ContentProvider {
     private static final String TAG = "ChannelContentProvider";
 

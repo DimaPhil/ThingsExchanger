@@ -12,12 +12,8 @@ import java.util.List;
 import odeen.newrssreader.proj.model.Channel;
 import odeen.newrssreader.proj.model.Item;
 
-/**
- * Created by Женя on 03.11.2014.
- */
 public class ChannelManager {
     private final static String TAG = "ChannelManager";
-
 
     private static ChannelManager sManager;
     private Context mContext;

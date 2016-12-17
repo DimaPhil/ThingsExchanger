@@ -13,7 +13,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -23,17 +22,9 @@ import odeen.newrssreader.proj.model.Item;
 import odeen.newrssreader.proj.parser.Parser;
 import odeen.newrssreader.proj.view.ItemListActivity;
 
-/**
- * Created by Женя on 04.11.2014.
- */
 public class ItemFetcherService extends IntentService {
     public static final String ACTION_ITEMS_UPDATED = "odeen.ITEMS_UPDATED";
-
     private final static String TAG = "ItemFetcherService";
-
-    private long mIdChannel;
-
-    private String mLinkChannel;
 
     public ItemFetcherService() {
         super(TAG);
@@ -41,15 +32,8 @@ public class ItemFetcherService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        mIdChannel = intent.getLongExtra(ItemListActivity.EXTRA_CHANNEL_ID, -1);
+        long mIdChannel = intent.getLongExtra(ItemListActivity.EXTRA_CHANNEL_ID, -1);
         ChannelManager.get(getApplicationContext()).setChannelLoading(mIdChannel, true);
-        /*
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        */
 
         Log.d(TAG, "Channel id is " + intent.getLongExtra(ItemListActivity.EXTRA_CHANNEL_ID, -1));
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -64,20 +48,18 @@ public class ItemFetcherService extends IntentService {
         Channel channel = ChannelManager.get(getApplicationContext()).getChannelById(mIdChannel);
         if (channel == null)
             return;
-        mLinkChannel = channel.getChannelLink();
+        String mLinkChannel = channel.getChannelLink();
         List<Item> items = null;
         Parser parser = new Parser();
         InputStream stream = null;
         try {
             stream = downloadUrl(mLinkChannel);
             items = parser.parse(stream);
-        } catch (IOException e) {
+        } catch (IOException ignored) {
         } catch (XmlPullParserException e) {
             Log.d(TAG, e.getMessage());
             e.printStackTrace();
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
+        } catch (ParserConfigurationException | SAXException e) {
             e.printStackTrace();
         } finally {
             if (stream != null) {

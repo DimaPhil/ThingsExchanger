@@ -1,10 +1,5 @@
 package odeen.newrssreader.proj.model;
 
-import java.util.ArrayList;
-
-/**
- * Created by Женя on 03.11.2014.
- */
 public class Channel {
     private String mChannelName;
     private String mChannelLink;

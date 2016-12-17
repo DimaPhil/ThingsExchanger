@@ -1,17 +1,19 @@
 package odeen.newrssreader.proj.parser;
 
-import android.content.Intent;
 import android.util.Log;
-import android.util.Xml;
 
 import org.xml.sax.Attributes;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.StringReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -24,23 +26,31 @@ import javax.xml.parsers.SAXParserFactory;
 
 import odeen.newrssreader.proj.model.Item;
 
-/**
- * Created by Женя on 04.11.2014.
- */
 public class Parser {
     private static final String ns = null;
     private SimpleDateFormat format = new SimpleDateFormat("E, dddd MMMM yyyy k:m:s z");
-    private ArrayList<Item> output;
+    private List<Item> output;
 
-    public List parse(InputStream in) throws XmlPullParserException, IOException, ParserConfigurationException, SAXException {
+    public List<Item> parse(InputStream in) throws XmlPullParserException, IOException, ParserConfigurationException, SAXException {
         FeedHandler feedHandler = new FeedHandler();
         SAXParser parser = SAXParserFactory.newInstance().newSAXParser();
-        parser.parse(in, feedHandler);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
+        StringBuilder sb = new StringBuilder();
+        String line;
+        while ((line = reader.readLine()) != null) {
+            sb.append(line);
+        }
+        String response = sb.toString();
+        response = response.replaceAll("&", "&amp;");
+        InputSource inputSource = new InputSource();
+        inputSource.setEncoding("UTF-8");
+        inputSource.setCharacterStream(new StringReader(response));
+        parser.parse(inputSource, feedHandler);
         return output;
     }
 
-    private List readFeed(XmlPullParser parser) throws XmlPullParserException, IOException {
-        List items = new ArrayList();
+    private List<Item> readFeed(XmlPullParser parser) throws XmlPullParserException, IOException {
+        List<Item> items = new ArrayList<>();
         parser.require(XmlPullParser.START_TAG, ns, "rss");
         parser.nextTag();
         parser.require(XmlPullParser.START_TAG, ns, "channel");
@@ -69,16 +79,22 @@ public class Parser {
                 continue;
             }
             String name = parser.getName();
-            if (name.equals("title")) {
-                title = readTitle(parser);
-            } else if(name.equals("link")) {
-                link = readLink(parser);
-            } else if (name.equals("description")) {
-                description = readDescription(parser);
-            } else if (name.equals("pubDate")) {
-                pubdate = readPubdate(parser);
-            } else {
-                skip(parser);
+            switch (name) {
+                case "title":
+                    title = readTitle(parser);
+                    break;
+                case "link":
+                    link = readLink(parser);
+                    break;
+                case "description":
+                    description = readDescription(parser);
+                    break;
+                case "pubDate":
+                    pubdate = readPublicationDate(parser);
+                    break;
+                default:
+                    skip(parser);
+                    break;
             }
         }
         Item item = new Item();
@@ -104,7 +120,6 @@ public class Parser {
                     break;
             }
         }
-
     }
 
     private String readTitle(XmlPullParser parser) throws IOException, XmlPullParserException {
@@ -125,7 +140,7 @@ public class Parser {
         parser.require(XmlPullParser.END_TAG, ns, "description");
         return description;
     }
-    private Date readPubdate(XmlPullParser parser) throws IOException, XmlPullParserException {
+    private Date readPublicationDate(XmlPullParser parser) throws IOException, XmlPullParserException {
         parser.require(XmlPullParser.START_TAG, ns, "pubDate");
         String date = readText(parser);
         Log.d("pubDate", date);
@@ -195,7 +210,7 @@ public class Parser {
         @Override
         public void startDocument() throws SAXException {
             super.startDocument();
-            output = new ArrayList<Item>();
+            output = new ArrayList<>();
         }
 
         @Override

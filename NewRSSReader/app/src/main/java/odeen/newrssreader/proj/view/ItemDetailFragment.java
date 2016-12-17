@@ -11,9 +11,6 @@ import android.webkit.WebViewClient;
 
 import odeen.newrssreader.R;
 
-/**
- * Created by Женя on 08.11.2014.
- */
 public class ItemDetailFragment extends Fragment {
 
     private String mLink;

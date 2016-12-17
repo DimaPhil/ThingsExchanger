@@ -9,7 +9,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.ListFragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -18,12 +17,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import java.util.ArrayList;
 
 import odeen.newrssreader.R;
 import odeen.newrssreader.proj.conroller.ChannelContentProvider;
@@ -32,9 +28,6 @@ import odeen.newrssreader.proj.conroller.SQLiteCursorLoader;
 import odeen.newrssreader.proj.conroller.ServiceHelper;
 import odeen.newrssreader.proj.model.Channel;
 
-/**
- * Created by Женя on 03.11.2014.
- */
 public class ChannelListFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor> {
     private final static String TAG = "ChannelListFragment";
 
